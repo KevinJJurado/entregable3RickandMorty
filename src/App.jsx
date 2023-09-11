@@ -26,6 +26,7 @@ function App() {
     getLocation()
   }, [inputValue])
 
+  // useEffect for loader page
   useEffect(() => {
     const changeStateLoading = () => {
       const loader = document.querySelector('.loader')
@@ -39,9 +40,10 @@ function App() {
     changeStateLoading()
   }, [isLoader])
 
-
+  // max variable for pagination component
   const max = Math.ceil(location?.residents.length / perPage)
   
+  // Input handling, handleSubmit is so that the page is not updated
   const inputSearch = useRef()
  
   const handleSubmit = e => {
@@ -49,15 +51,28 @@ function App() {
     setInputValue(inputSearch.current.value.trim())
   }
 
-  // console.log(Math.ceil(location?.residents.length / perPage))
+
+  // Autocomplete in location finder
+  const autoComplete = () => {
+    const option = []
+    for (let i = 0; i < 126; i++) {
+      option.push(<option key={i} value={i}></option>)
+    }
+    return option
+  }
+
   return (
     <div className='principal'>
       <Loader/>
       <img className='principal__header' src="./Rick-and-MortyTitulo.png" alt="" />
       <form className='principal__form' onSubmit={handleSubmit}>
-        <input ref={inputSearch} type="text" placeholder='Enter some value' />
+        <input ref={inputSearch} type="text" placeholder='Enter some value' list='location'/>
         <button>SEARCH</button>
+        <datalist id='location'>
+          {autoComplete()}
+        </datalist>
       </form>
+      
       <audio controls>
         <source src='/Rick_and_Morty_Intro.mp3' type='audio/mp3'/>
       </audio>
