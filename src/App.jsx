@@ -52,7 +52,7 @@ function App() {
   }
 
 
-  // Autocomplete in location finder
+  // Autocomplete in location finder, return a value between 1 and 126
   const autoComplete = () => {
     const option = []
     for (let i = 0; i < 126; i++) {
@@ -66,7 +66,7 @@ function App() {
       <Loader/>
       <img className='principal__header' src="./Rick-and-MortyTitulo.png" alt="" />
       <form className='principal__form' onSubmit={handleSubmit}>
-        <input ref={inputSearch} type="text" placeholder='Enter some value' list='location'/>
+        <input ref={inputSearch} type="text" placeholder='Enter a location' list='location'/>
         <button>SEARCH</button>
         <datalist id='location'>
           {autoComplete()}
