@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: url('/fondo2.jpg');
+  background-image: url('assets/fondo2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: center;
   z-index: 2;
-  background-image: url('/fondo2.jpg');
+  background-image: url('assets/fondo2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
